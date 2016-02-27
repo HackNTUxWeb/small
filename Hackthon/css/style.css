@@ -113,7 +113,9 @@ body{
     background-color: #201307;
 }
 .header-banner{
-	background:url(../images/banner3.jpg)no-repeat 0px 0px;
+	/*background:url(../images/banner3.jpg)no-repeat 0px 0px;*/
+	background: url(../images/banner3.jpg) center / cover;
+
 	background-size:cover;
 	min-height:881px;
 }
@@ -139,6 +141,7 @@ body{
  }
 /**welcome**/
  .welcome-section {
+    margin: 50px 0; //kai
     padding: 0 0 4em;
 }
  .welcome-section h2 {
@@ -423,7 +426,8 @@ img.zoom-img {
     font-family: 'Contrail One', cursive;
 }
 .partner-right p {
-    font-size: .9em;
+    /*font-size: .9em;*/
+    font-size: 1.2em;
     color: #eee;
 }
 .footer-section{
@@ -1113,7 +1117,7 @@ h2.typoh2{
 	font-weight:700;
 }
 .contact-left ul{
-	padding:1em 0 0;
+	/*padding:1em 0 0;*/
 	margin:0;
 }
 .contact-left ul li{
@@ -1276,7 +1280,8 @@ h2.typoh2{
     width: 79%;
 }
 .offer-grid i {
-    width: 22%;
+    /*width: 22%;*/
+    width: 25%; // kai
 }
 .event-text span {
     font-size: 1.4em;
@@ -1657,7 +1662,8 @@ h2.typoh2{
     width: 66%;
 }
 .header-banner {
-    background: url(../images/banner3.jpg)no-repeat -53px 0px;
+    /*background: url(../images/banner3.jpg)no-repeat -53px 0px;*/
+    background: url(../images/banner3.jpg) center / cover;
     background-size: cover;
 }
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
@@ -1802,7 +1808,8 @@ h2.typoh2{
     font-size: 1.6em;
 }
 .header-banner {
-    background: url(../images/banner3.jpg)no-repeat -78px 0px;
+    /*background: url(../images/banner3.jpg)no-repeat -78px 0px;*/
+    background: url(../images/banner3.jpg) center / cover;
     background-size: cover;
     min-height: 367px;
 }
