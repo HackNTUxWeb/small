@@ -125,7 +125,7 @@ body{
     padding: 3em 3em;
     margin-top: 15em;
     border-radius: 20px;
-    text-align: right;
+    /*text-align: right;*/ //kai
 }
 .caption h3{
 	color: #fff;
