@@ -5,6 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
 body a{
     transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -30,12 +32,12 @@ p{
 }
 ul{
 	padding:0 0;
-	margin:0 0;	
+	margin:0 0;
 }
 body{
 	padding:0 0;
-	margin:0 0; 
-	font-family: 'Open Sans', sans-serif;
+	margin:0 0;
+	font-family: 'Noto Sans TC', 'Open Sans', sans-serif;
 }
 .navbar-brand {
     float: left;
@@ -61,8 +63,8 @@ body{
 }
 .navbar-brand h1 a {
     font-size: 1.4em;
-    /*font-family: 'Contrail One', cursive;*/
-    font-family: Verdana, sans-serif; //kai
+    /*font-family: 'Noto Sans TC', 'Contrail One', cursive;*/
+    font-family: 'Noto Sans TC', Verdana, sans-serif; //kai
     text-decoration: none;
 	color:#fff;
 }
@@ -82,7 +84,7 @@ body{
 .navbar-default .navbar-nav > li > a {
     color: #fff;
     font-size: 1.2em;
-	font-family: 'Contrail One', cursive;
+	font-family: 'Noto Sans TC', 'Contrail One', cursive;
     text-transform: capitalize;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -106,7 +108,7 @@ body{
     color: #333;
     white-space: nowrap;
     font-size: 1.2em;
-	    font-family: 'Contrail One', cursive;
+	    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     color: #fff;
@@ -132,7 +134,7 @@ body{
 	color: #fff;
   font-size: 3em;
   text-transform:capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 	}
 .caption p{
 	color: #fff;
@@ -148,7 +150,7 @@ body{
  .welcome-section h2 {
     font-size: 3em;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 	color: #201307;
 }
 .welcome-grids {
@@ -159,7 +161,7 @@ body{
 	font-size: 1.6em;
    color: #fff;
    text-transform: capitalize;
-	font-family: 'Contrail One', cursive;
+	font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .welcome-grid p{
     font-size: 1em;
@@ -232,7 +234,7 @@ body{
 .extreme-diving h3 {
     font-size: 3em;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     color: #201307;
 }
 .extreme-diving span {
@@ -252,7 +254,7 @@ body{
     font-size: 1.6em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .extreme-grid1 p {
      font-size: 1em;
@@ -277,7 +279,7 @@ body{
 .testimonials h3 {
 	font-size: 3em;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     color: #fff;
 }
 .testimonials  p {
@@ -293,7 +295,7 @@ body{
     font-size: 1.4em;
     text-decoration: none;
     margin-top: 1em;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     display: block;
     float: left;
 }
@@ -310,7 +312,7 @@ div#owl-demo {
 .news-section h3 {
     font-size: 3em;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     color: #201307;
 }
 .news-section span {
@@ -340,7 +342,7 @@ div#owl-demo {
     font-size: 1.1em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     padding: .8em 0;
 	display: block;
 }
@@ -386,7 +388,7 @@ img.zoom-img {
 .partner h3 {
     font-size: 3em;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     color: #201307;
 }
 .partner span {
@@ -424,7 +426,7 @@ img.zoom-img {
     font-size: 1.6em;
     color: #fff;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .partner-right p {
     /*font-size: .9em;*/
@@ -534,7 +536,7 @@ img.zoom-img {
 .banner-section h2 {
     font-size: 3em;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     color: #fff;
 }
 .about-section {
@@ -544,7 +546,7 @@ img.zoom-img {
     font-size: 1.6em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .about-grid1 p {
     font-size: 1em;
@@ -584,7 +586,7 @@ img.zoom-img {
     font-size: 1.8em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .boat p {
     font-size: 1em;
@@ -601,7 +603,7 @@ img.zoom-img {
 .about-bottom1 h3,.beat-sea h3,.aboutbottom-grid1 h3,.features h3,.services-section h3,.offer h3 {
     font-size: 3em;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
     color: #201307;
 }
 .about-grid img {
@@ -613,7 +615,7 @@ img.zoom-img {
     font-size: 1.3em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 	padding: .5em 0 .2em;
 }
 .bottom1 p {
@@ -640,7 +642,7 @@ img.zoom-img {
     font-size: 1.3em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .beat-right p {
     font-size: 1em;
@@ -664,7 +666,7 @@ img.zoom-img {
 .active-left h5 {
     font-size: 1.2em;
     color: #fff;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .actives {
     margin-top: 3em;
@@ -673,7 +675,7 @@ img.zoom-img {
     font-size: 1.3em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .active-right p {
     font-size: 1em;
@@ -698,7 +700,7 @@ img.zoom-img {
     font-size: 1.6em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .feature-grid p {
     font-size: 1em;
@@ -719,7 +721,7 @@ img.zoom-img {
     font-size: 1.6em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .services-grid1 p {
     font-size: 1em;
@@ -769,7 +771,7 @@ img.zoom-img {
     font-size: 1.6em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 	    padding: .8em 0 .5em
 }
 .offer-grid i {
@@ -805,13 +807,13 @@ img.zoom-img {
     font-size: 2em;
     color: #69B0AC;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .client h4 {
     font-size: 1.6em;
     color: #69B0AC;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 	padding-top: .5em;
 }
 /*--gallery--*/
@@ -910,7 +912,7 @@ img.zoom-img {
   border-radius:4px;
   -webkit-border-radius:4px;
 	-moz-border-radius:4px;
-}  
+}
 .grid_5{
 	background:none;
 	padding:2em 0;
@@ -1178,7 +1180,7 @@ h2.typoh2{
     color: #201307;
     text-transform: capitalize;
 	 margin: 0 0 1em;
-       font-family: 'Contrail One', cursive;
+       font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .contact-bottom {
     margin: 0em 0 3em 0;
@@ -1190,14 +1192,14 @@ h2.typoh2{
 }
 .event-text h5 {
     font-size: 2em;
-	color:#201307;   
-	font-family: 'Contrail One', cursive;
+	color:#201307;
+	font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .event-text span {
     font-size: 1.5em;
 	color:#201307;
 	text-transform: capitalize;
-	font-family: 'Contrail One', cursive;
+	font-family: 'Noto Sans TC', 'Contrail One', cursive;
 }
 .event-text {
     position: absolute;
@@ -1212,7 +1214,7 @@ h2.typoh2{
     font-size: 1.6em;
     color: #201307;
     text-transform: capitalize;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Noto Sans TC', 'Contrail One', cursive;
 	    padding: .5em 0 .2em;
 }
 .event-grid p {
@@ -1311,7 +1313,7 @@ h2.typoh2{
   }
  .header-banner {
     min-height: 524px;
-} 
+}
 .caption {
         width: 42%;
     padding: 2em 1.5em;
