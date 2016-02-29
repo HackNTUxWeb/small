@@ -42,7 +42,7 @@ body{
     padding: 0;
 }
 .header-section {
-    background: #93DA8D;
+    background: #69B0AC;
 }
 .navbar-nav {
     float: right;
@@ -176,7 +176,7 @@ body{
     width: 15%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 /* Bounce To Bottom */
@@ -203,7 +203,7 @@ body{
   left: 0;
   right: 0;
   bottom: 0;
-  background: #93DA8D;
+  background: #69B0AC;
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
   -webkit-transform-origin: 50% 0;
@@ -239,7 +239,7 @@ body{
     width: 21%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .extreme-grids {
@@ -317,18 +317,18 @@ div#owl-demo {
     width: 17%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .new-grid {
-    border-right: 2px solid#93DA8D;
+    border-right: 2px solid#69B0AC;
 }
 .news-grids {
     margin-top: 3em;
 }
 .new-grid1 i {
     font-size: 1.2em;
-    color: #93DA8D;
+    color: #69B0AC;
     margin-right: 2em;
     vertical-align: middle;
 }
@@ -414,7 +414,7 @@ img.zoom-img {
     color: #fff;
 }
 .partners {
-   background: #93DA8D;
+   background: #69B0AC;
     padding: 3em 1em;
     moz-box-shadow: 4px 9px 12px #888;
     -webkit-box-shadow: 4px 9px 12px #888;
@@ -556,28 +556,28 @@ img.zoom-img {
     width: 15%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .beat-sea span {
 	width: 31%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .aboutbottom-grid1 span {
     width: 31%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .features span {
 	width: 13%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .boat h5 {
@@ -732,7 +732,7 @@ img.zoom-img {
     width: 15%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .services-grids {
@@ -742,7 +742,7 @@ img.zoom-img {
     width: 32%;
     height: 2px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: 2em;
 }
 .services-grid img {
@@ -758,7 +758,7 @@ img.zoom-img {
 	width: 14%;
     height: 3px;
     display: block;
-    background: #93DA8D;
+    background: #69B0AC;
     margin-top: .5em;
 }
 .offer-grids {
@@ -773,7 +773,7 @@ img.zoom-img {
 	    padding: .8em 0 .5em
 }
 .offer-grid i {
-    background: #93DA8D;
+    background: #69B0AC;
     color: #fff;
     width: 18%;
     margin: 0 auto;
@@ -803,13 +803,13 @@ img.zoom-img {
 }
 .client h5 {
     font-size: 2em;
-    color: #93DA8D;
+    color: #69B0AC;
     text-transform: capitalize;
     font-family: 'Contrail One', cursive;
 }
 .client h4 {
     font-size: 1.6em;
-    color: #93DA8D;
+    color: #69B0AC;
     text-transform: capitalize;
     font-family: 'Contrail One', cursive;
 	padding-top: .5em;
@@ -1171,7 +1171,7 @@ h2.typoh2{
     -ms-transition: .5s all;
 }
 .contact-left input[type="submit"]:hover,.contact-left input[type="reset"]:hover{
-	background:#93DA8D;
+	background:#69B0AC;
 }
 .contact-left h4{
 	font-size: 1.6em;
@@ -1513,7 +1513,7 @@ h2.typoh2{
     background-color: #201307;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #93DA8D;
+    border-color: #69B0AC;
 }
 .navbar-default .navbar-toggle {
     border-color: #201307;
