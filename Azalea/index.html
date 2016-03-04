@@ -1,26 +1,61 @@
-My Page
+<!DOCTYPE html>
 
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-3.3.6-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/main_style.css">
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1691957414394781',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
+    <title>House Destructor</title>
+    <link rel="shortcut icon" href="source/logo.png"/>
+  </head>
+ 
+  <body>   
+    <div class="page-header">
+      <h1><img src="source/logo.png" height="100" width="100" >房子破壞王<small class="en-title">Stupid Bird Express</small></h1>
+    </div>
+    <div class = "inner-page padd">
+      <div class = "about-vedio padd">
+        <div class = "container-fluid" style="width:90%">
+          <!-- game canvas -->
+          <div class="row">
+            <div class="col-md-3 .col-xs-1"></div>
+            <div class="game-canvas col-md-6 col-xs-10">
+              <img src="source/01.png" width="100%" class="gh-01">
+              <img src="source/02.png" width="100%" class="gh-02 hidden">
+              <img src="source/03.png" width="100%" class="gh-03 hidden">
+              <img src="source/04.png" width="100%" class="gh-04 hidden">
+              <img src="source/05.png" width="100%" class="gh-05 hidden">
+              <img src="source/06.png" width="100%" class="gh-06 hidden">
+              <img src="source/07.png" width="100%" class="gh-07 hidden">
+              <img src="source/08.png" width="100%" class="gh-08 hidden">
+              <img src="source/09.png" width="100%" class="gh-09 hidden">
+              <img src="source/10.png" width="100%" class="gh-10 hidden">
+            </div>
+            <div class="col-md-3 col-xs-1"></div>
+          </div>
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+          <!-- score canvas -->
+          <div class="row">
+            <div class="col-md-4 .col-xs-4"></div>
+            <div class="score-band col-md-4 col-xs-4">00</div>
+            <div class="col-md-4 col-xs-4"></div>
+          </div>
+
+          <!-- more info -->
+          <div class="row">
+            <div class="more-info"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>copyright &copy HackNTU</footer>
+
+
+    <script type="application/dart" src="dart/main.dart"></script>
+    <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+    <script src="packages/browser/dart.js"></script>
+    <!-- GA -->
+  </body>
+</html>
