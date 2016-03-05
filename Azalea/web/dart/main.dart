@@ -107,7 +107,7 @@ void showResult() {
   modal.querySelector(".result-score").text = "你按了${cnt}下";
   modal.querySelector("p").text = "你成功破壞房子${level*10}%！....";
 
-  modal.querySelector("restart-btn").onClick.listen((MouseEvent) => window.location.reload()); 
+  modal.querySelector(".restart-btn").onClick.listen((MouseEvent) => window.location.reload()); 
 }
 
 int levelUp() => level*level + 5;
