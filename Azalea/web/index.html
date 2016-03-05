@@ -4,6 +4,15 @@
   <head>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- meta for facebook share -->
+    <meta property="og:url"           content="http://hackntuxweb.github.io/small/Azalea/web" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="房子破壞王 House Destructor" />
+    <meta property="og:description"   content="快來挑戰你能破壞房子到什麼程度！" />
+    <meta property="og:image"         content="http://hackntuxweb.github.io/small/Azalea/web/source/logo.png" />
+
+    <!-- style -->
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-3.3.6-dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles/main_style.css">
 
@@ -11,7 +20,27 @@
     <link rel="shortcut icon" href="source/logo.png"/>
   </head>
  
-  <body>   
+  <body>     
+    <!-- facebook -->
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1691957414394781',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "http://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <div class="page-header">
       <h1><img src="source/logo.png" height="100" width="100" >房子破壞王<small class="en-title">House Destructor</small></h1>
     </div>
@@ -56,17 +85,38 @@
             <div class="score-band col-md-4 col-xs-6">0</div>
             <div class="col-md-4 col-xs-3"></div>
           </div>
-
-          <!-- more info -->
-          <div class="row">
-            <div class="more-info"></div>
-          </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade in hidden" role="dialog" style="display: block; padding-left: 0px;">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">YOUR SCORE</h2>
+          </div>
+          <div class="modal-body">
+            <img src="source/1.png" class="result-picture" width="60%">
+            <h3 class="result-score"></h3>
+            <p></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default fb-share-button modal-btn" 
+                    data-href="http://hackntuxweb.github.io/small/Azalea/web">share</button>
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="200" data-type="button_count"></div>
+            <button type="button" class="btn btn-default modal-btn restart-btn">restart</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <footer>copyright &copy HackNTU</footer>
 
-
+    <!-- dart -->
     <script type="application/dart" src="dart/main.dart"></script>
     <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
     <script src="packages/browser/dart.js"></script>

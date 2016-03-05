@@ -41,8 +41,13 @@ h1 .en-title {
 	text-align: center;
 }
 
-.more-info {
-	height: 10%;
+#myModal {
+	text-align: center;
+}
+
+.modal-header {
+	background-color: #9ecdcb;
+	font-family: "VT323";
 }
 
 footer {
