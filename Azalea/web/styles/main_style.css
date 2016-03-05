@@ -1,0 +1,47 @@
+body {
+	background-color: #69B0AC;
+}
+
+h1 {
+	text-align: center;
+}
+
+.time-dispaly, .start-button {
+	margin-top: 1%;
+	margin-bottom: 3%;
+	text-align: center;
+	font-size: 10vw;
+}
+
+.start-button {
+	border-radius: 3vw;
+	background-color: #9ecdcb;
+	color: white;
+}
+
+.start-button:hover {
+	background-color: #cbe5e7;
+}
+
+.container-fluid {
+	background-color: #effdfd; 
+}
+
+.score-band {
+	margin-bottom: 3%;
+	font-size: 25vw;
+	text-align: center;
+}
+
+.more-info {
+	height: 10%;
+}
+
+footer {
+	text-align: center;
+	margin-top: 1%; 
+}
+
+.hidden {
+	display: none;
+}
