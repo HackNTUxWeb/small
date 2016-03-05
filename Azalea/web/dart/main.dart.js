@@ -3636,7 +3636,7 @@ x=w.querySelector("p")
 y=$.E
 if(typeof y!=="number")return y.bM()
 x.textContent="\u4f60\u6210\u529f\u7834\u58de\u623f\u5b50"+y*10+"%\uff01...."
-y=J.d5(w.querySelector("restart-btn"))
+y=J.d5(w.querySelector(".restart-btn"))
 H.i(new W.aM(0,y.a,y.b,W.ad(new F.fR()),y.c),[H.J(y,0)]).a2()},
 fy:{
 "^":"e:15;",
@@ -3833,6 +3833,35 @@ C.p=function(getTagFallback) {
     hooks.getTag = getTagFallback;
   };
 }
+C.r=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
+}
 C.q=function() {
   function typeNameInChrome(o) {
     var constructor = o.constructor;
@@ -3868,35 +3897,6 @@ C.q=function() {
     getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
     prototypeForTag: prototypeForTag,
     discriminator: discriminator };
-}
-C.r=function(hooks) {
-  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
-  if (userAgent.indexOf("Trident/") == -1) return hooks;
-  var getTag = hooks.getTag;
-  var quickMap = {
-    "BeforeUnloadEvent": "Event",
-    "DataTransfer": "Clipboard",
-    "HTMLDDElement": "HTMLElement",
-    "HTMLDTElement": "HTMLElement",
-    "HTMLPhraseElement": "HTMLElement",
-    "Position": "Geoposition"
-  };
-  function getTagIE(o) {
-    var tag = getTag(o);
-    var newTag = quickMap[tag];
-    if (newTag) return newTag;
-    if (tag == "Object") {
-      if (window.DataView && (o instanceof window.DataView)) return "DataView";
-    }
-    return tag;
-  }
-  function prototypeForTagIE(tag) {
-    var constructor = window[tag];
-    if (constructor == null) return null;
-    return constructor.prototype;
-  }
-  hooks.getTag = getTagIE;
-  hooks.prototypeForTag = prototypeForTagIE;
 }
 C.t=function(hooks) {
   var getTag = hooks.getTag;
