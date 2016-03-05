@@ -1,9 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
 body {
 	background-color: #69B0AC;
 }
 
 h1 {
 	text-align: center;
+}
+
+h1 .en-title {
+	font-family: "VT323";
 }
 
 .time-dispaly, .start-button {
@@ -29,6 +35,8 @@ h1 {
 
 .score-band {
 	margin-bottom: 3%;
+	border-radius: 10vw;
+	background-color: #ffffff;
 	font-size: 25vw;
 	text-align: center;
 }
