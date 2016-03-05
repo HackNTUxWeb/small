@@ -3,7 +3,6 @@ import 'dart:async';
 
 //elements
 Element gameCanvas;
-Element target;
 Element scoreBoard;
 Element startBtn;
 Element timeDisplay;
@@ -24,7 +23,6 @@ void main() {
 
 void initGame() {
   gameCanvas = querySelector('.game-canvas');
-	target = querySelector('.game-canvas img');
 	scoreBoard = querySelector('.score-band');
 	startBtn = querySelector('.start-button');
 	timeDisplay = querySelector('.time-dispaly');
@@ -48,13 +46,14 @@ void initGame() {
         timeDisplay.text = "${10-(now~/1000)}.0s";
       else
         timeDisplay.text = "${9-(now~/1000)}.${10-((now~/100)%10)}s";
-      // //update picture
-      // if (level < 10 && cnt > levelUp()) {
-      //   gameCanvas.querySelector(".gh-$level").classes.toggle("hidden");
-      //   gameCanvas.querySelector(".gh-${level+1}").classes.toggle("hidden");
-      //   level += 1;
-      //   print(level);
-      // }
+      //update picture
+      if (level < 10 && cnt > levelUp()) {
+        print("in");
+        gameCanvas.querySelector(".gh-$level").classes.toggle("hidden");
+        gameCanvas.querySelector(".gh-${level+1}").classes.toggle("hidden");
+        level += 1;
+        print("level: $level");
+      }
       //update score
       scoreBoard.text = "$cnt";
     }
@@ -83,7 +82,7 @@ void initEvent() {
     });
 	});
 
-  target.onMouseUp.listen((MouseEvent) {
+  gameCanvas.onMouseUp.listen((MouseEvent) {
     if (going) {
       cnt++;
     }
