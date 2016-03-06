@@ -42,13 +42,18 @@ h1 .en-title {
 	text-align: center;
 }
 
-#myModal {
+#myModal, #loginModal {
 	text-align: center;
 }
 
 .modal-header {
 	background-color: #9ecdcb;
 	font-family: "VT323";
+}
+
+#loginModal i {
+	color: #69B0AC;
+	font-size: 20vw;
 }
 
 footer {
