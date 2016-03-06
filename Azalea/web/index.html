@@ -16,6 +16,9 @@
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-3.3.6.css">
     <link rel="stylesheet" type="text/css" href="styles/main_style.css">
 
+    <!-- js -->
+    <script type="text/javascript" src="js/fb_utils.js"></script>
+
     <title>House Destructor</title>
     <link rel="shortcut icon" href="source/logo.png"/>
   </head>
@@ -50,6 +53,8 @@
          js.src = "http://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+      window.onload = FBlogin();
     </script>
 
     <div class="page-header">
