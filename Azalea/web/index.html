@@ -13,7 +13,7 @@
     <meta property="og:image"         content="http://hackntuxweb.github.io/small/Azalea/web/source/logo.png" />
 
     <!-- style -->
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap-3.3.6-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-3.3.6.css">
     <link rel="stylesheet" type="text/css" href="styles/main_style.css">
 
     <title>House Destructor</title>
@@ -29,6 +29,12 @@
           appId      : '1691957414394781',
           xfbml      : true,
           version    : 'v2.5'
+        });
+
+        FB.login(function(response) {
+          if (response.authResponse) {
+            accessToken = response.authResponse.accessToken;
+          }
         });
       };
 
