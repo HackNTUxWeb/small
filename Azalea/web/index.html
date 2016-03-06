@@ -56,12 +56,13 @@
 
       function FBlogin() {
         FB.login(function(response) {
-        if (response.authResponse) {
-          accessToken = response.authResponse.accessToken;
-          console.log('Welcome! ' + accessToken);
-        } else {
-          console.log('User cancelled login or did not fully authorize.');
-        }
+          if (response.authResponse) {
+            accessToken = response.authResponse.accessToken;
+            console.log('Welcome! ' + accessToken);
+          } else {
+            console.log('User cancelled login or did not fully authorize.');
+          }
+        });
       }
     </script>
 
@@ -137,6 +138,7 @@
     </div>
 
     <footer>copyright &copy HackNTU</footer>
+    <button onclick="FBlogin()" style="visibility: hidden; height: 0px;" class="login-btn"></button>
 
     <!-- dart -->
     <script type="application/dart" src="dart/main.dart"></script>
