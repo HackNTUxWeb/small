@@ -60,15 +60,16 @@
         if (!login) {
           FB.login(function(response) {
             login = true;
+            //close login madol
+            var loginModalElement = document.getElementById("loginModal");
+            loginModalElement.className += " hidden";
+            //get id
             if (response.authResponse) {
               uid = response.authResponse.userID;
               accessToken = response.authResponse.accessToken;
               // console.log("uid: " + uid);
               // console.log("token: " + accessToken);
             }
-            //close login madol
-            var loginModalElement = document.getElementById("loginModal");
-            loginModalElement.className += " otherclass";
           });
         }
       }
