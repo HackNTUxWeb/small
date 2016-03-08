@@ -30,7 +30,6 @@
       var login = false;
 
       window.fbAsyncInit = function() {
-        console.log("fb init");
         FB.init({
           appId      : '1691957414394781',
           xfbml      : true,
@@ -43,8 +42,8 @@
             login = true;
             uid = response.authResponse.userID;
             accessToken = response.authResponse.accessToken;
-            console.log("uid: " + uid);
-            console.log("token: " + accessToken);
+            // console.log("uid: " + uid);
+            // console.log("token: " + accessToken);
           }
         });
       };
@@ -64,8 +63,8 @@
             if (response.authResponse) {
               uid = response.authResponse.userID;
               accessToken = response.authResponse.accessToken;
-              console.log("uid: " + uid);
-              console.log("token: " + accessToken);
+              // console.log("uid: " + uid);
+              // console.log("token: " + accessToken);
             }
           });
         }
@@ -74,7 +73,7 @@
       function updateSore(score) {
         /* make the API call */
         FB.api(
-          "/" + accessToken + "/scores",
+          "/" + uid + "/scores",
           "POST",
           {
               "score": score
@@ -82,7 +81,7 @@
           function (response) {
             if (response) {
               /* handle the result */
-              console.log("score reponse");
+              console.log("score reponse: " + response.success);
             }
           }
         );
