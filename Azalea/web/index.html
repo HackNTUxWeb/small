@@ -40,10 +40,13 @@
           if (response.status === 'connected') {
             login = true;
             FB.api("/{user-id}", function (response) {
-              if (response && !response.error) {
-                /* handle the result */
-                accessToken = response.id;
-                console.log("get id" + accessToken);
+              if (response ){
+                console.log("login reponse");
+                if(!response.error) {
+                  /* handle the result */
+                  accessToken = response.id;
+                  console.log("get id" + accessToken);
+                }
               }
             });
           }
@@ -77,8 +80,9 @@
               "score": score
           },
           function (response) {
-            if (response && !response.error) {
+            if (response) {
               /* handle the result */
+              console.log("score reponse");
             }
           }
         );
