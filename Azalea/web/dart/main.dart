@@ -1,11 +1,13 @@
 import 'dart:html';
 import 'dart:async';
+import 'dart:js' as js;
 
 //elements
 Element gameCanvas;
 Element scoreBoard;
 Element startBtn;
 Element timeDisplay;
+Element loginBtn;
 //score
 int cnt;
 int cntForAnimate;
@@ -20,11 +22,13 @@ final fbAppSecret = "f32ba829b522d4edd5de8b404523801c";
 
 
 void main() {
+  // initFacebook();
 	initGame();
 	initEvent();
 }
 
 void initGame() {
+  loginBtn = querySelector('.login-btn');
   gameCanvas = querySelector('.game-canvas');
 	scoreBoard = querySelector('.score-band');
 	startBtn = querySelector('.start-button');
@@ -73,6 +77,11 @@ void initGame() {
 }
 
 void initEvent() {
+  loginBtn.onMouseUp.listen((MouseEvent) {
+    new Timer(const Duration(milliseconds:500), (){
+      querySelector("#loginModal").classes.add("hidden");
+    });
+  });
 	startBtn.onMouseUp.listen((MouseEvent) {
     going = true;
     new Timer(const Duration(milliseconds:100), () {
@@ -93,10 +102,6 @@ void initEvent() {
 }
 
 void showResult() {
-  //setup mate
-  MetaElement meta = new MetaElement();
-  meta.attributes["og:description"] = "我的成績是${cnt}，房子已經${level*10}%損毀！快來試試你能頗壞到什麼程度！";
-  meta.attributes["og:image"] = "http://hackntuxweb.github.io/small/Azalea/web/source/${level}.png";
   //show madal
   Element modal = querySelector("#myModal");
   modal.classes.toggle("hidden");
@@ -108,7 +113,13 @@ void showResult() {
   modal.querySelector("p").text = "你成功破壞房子${level*10}%！....";
 
   modal.querySelector(".restart-btn").onClick.listen((MouseEvent) => window.location.reload()); 
+  //save score
+  js.context.callMethod("FBupdateSore", ["$cnt"]);
 }
 
 int levelUp() => level*level + 5;
+
+void initFacebook() {
+    querySelector('.login-btn').click();
+}
 

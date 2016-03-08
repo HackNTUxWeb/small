@@ -13,8 +13,9 @@
     <meta property="og:image"         content="http://hackntuxweb.github.io/small/Azalea/web/source/logo.png" />
 
     <!-- style -->
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap-3.3.6-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-3.3.6.css">
     <link rel="stylesheet" type="text/css" href="styles/main_style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <title>House Destructor</title>
     <link rel="shortcut icon" href="source/logo.png"/>
@@ -24,21 +25,69 @@
     <!-- facebook -->
     <div id="fb-root"></div>
     <script>
+      var uid;
+      var accessToken;
+      var login = false;
+
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '1691957414394781',
           xfbml      : true,
-          version    : 'v2.5'
+          version    : 'v2.5',
+          channelUrl : 'http://hackntuxweb.github.io/small/Azalea/web/'
+        });
+
+        FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            login = true;
+            uid = response.authResponse.userID;
+            accessToken = response.authResponse.accessToken;
+            // console.log("uid: " + uid);
+            // console.log("token: " + accessToken);
+          }
         });
       };
 
       (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "http://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "http://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      function FBlogin() {
+        if (!login) {
+          FB.login(function(response) {
+            login = true;
+            if (response.authResponse) {
+              uid = response.authResponse.userID;
+              accessToken = response.authResponse.accessToken;
+              // console.log("uid: " + uid);
+              // console.log("token: " + accessToken);
+            }
+            //close login madol
+            document.getElementById("close-login-madol").dispatchEvent(clickEvent);
+          });
+        }
+      }
+
+      function FBupdateSore(score) {
+        /* make the API call */
+        FB.api(
+          "/" + uid + "/scores",
+          "POST",
+          {
+              "score": score
+          },
+          function (response) {
+            if (response) {
+              /* handle the result */
+              console.log("score reponse: " + response.success);
+            }
+          }
+        );
+      }
     </script>
 
     <div class="page-header">
@@ -89,7 +138,7 @@
       </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Result Modal -->
     <div id="myModal" class="modal fade in hidden" role="dialog" style="display: block; padding-left: 0px;">
       <div class="modal-dialog">
 
@@ -112,6 +161,23 @@
       </div>
     </div>
 
+    <!-- login Modal -->
+    <div id="loginModal" class="modal fade in" role="dialog" style="display: block; padding-left: 0px;">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" id="close-login-madol">&times;</button>
+            <h2 class="modal-title">Loing in</h2>
+          </div>
+          <div class="modal-body">
+            <div onclick="FBlogin()" class="login-btn"><i class="fa fa-facebook-square"></i></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <footer>copyright &copy HackNTU</footer>
 
     <!-- dart -->
