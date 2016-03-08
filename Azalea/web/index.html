@@ -29,6 +29,7 @@
       var login = false;
 
       window.fbAsyncInit = function() {
+        console.log("fb init");
         FB.init({
           appId      : '1691957414394781',
           xfbml      : true,
@@ -37,8 +38,10 @@
         });
 
         FB.getLoginStatus(function(response) {
+          console.log("check status");
           if (response.status === 'connected') {
             login = true;
+            console.log("ask user-id");
             FB.api("/{user-id}", function (response) {
               if (response ){
                 console.log("login reponse");
@@ -62,13 +65,16 @@
       }(document, 'script', 'facebook-jssdk'));
 
       function FBlogin() {
-        FB.login(function(response) {
-          if (response.authResponse) {
-            accessToken = response.authResponse.accessToken;
-            login = true;
-            console.log("get id" + accessToken);
-          }
-        });
+        console.log("fblogin");
+        if (!login) {
+          FB.login(function(response) {
+            if (response.authResponse) {
+              accessToken = response.authResponse.accessToken;
+              login = true;
+              console.log("get id" + accessToken);
+            }
+          });
+        }
       }
 
       function updateSore(score) {
