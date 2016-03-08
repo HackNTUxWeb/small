@@ -92,19 +92,14 @@
         );
       }
 
-      function FBAskfriendScores() {
+      function FBAskfriendScores(handler) {
         FB.api(
           "/" + myAppId + "/scores",
           "GET",
           {
             "access_token": access_token
           }, 
-          function (response) {
-            if (response && !response.error) {
-              console.log("score" + response[0].user.name + ", " + reponse[0].score);
-              return response;
-            }
-          }
+          handler
         );
       }
     </script>
