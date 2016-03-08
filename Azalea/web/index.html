@@ -25,6 +25,7 @@
     <!-- facebook -->
     <div id="fb-root"></div>
     <script>
+      var uid;
       var accessToken;
       var login = false;
 
@@ -38,20 +39,12 @@
         });
 
         FB.getLoginStatus(function(response) {
-          console.log("check status");
           if (response.status === 'connected') {
             login = true;
-            console.log("ask user-id");
-            FB.api("/{user-id}", function (response) {
-              if (response ){
-                console.log("login reponse");
-                if(!response.error) {
-                  /* handle the result */
-                  accessToken = response.id;
-                  console.log("get id" + accessToken);
-                }
-              }
-            });
+            uid = response.authResponse.userID;
+            accessToken = response.authResponse.accessToken;
+            console.log("uid: " + uid);
+            console.log("token: " + accessToken);
           }
         });
       };
@@ -65,13 +58,14 @@
       }(document, 'script', 'facebook-jssdk'));
 
       function FBlogin() {
-        console.log("fblogin");
         if (!login) {
           FB.login(function(response) {
+            login = true;
             if (response.authResponse) {
+              uid = response.authResponse.userID;
               accessToken = response.authResponse.accessToken;
-              login = true;
-              console.log("get id" + accessToken);
+              console.log("uid: " + uid);
+              console.log("token: " + accessToken);
             }
           });
         }
