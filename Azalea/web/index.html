@@ -67,7 +67,8 @@
               // console.log("token: " + accessToken);
             }
             //close login madol
-            document.getElementById("close-login-madol").dispatchEvent(clickEvent);
+            var loginModalElement = document.getElementById("loginModal");
+            loginModalElement.className += " otherclass";
           });
         }
       }
@@ -168,7 +169,7 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" id="close-login-madol">&times;</button>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h2 class="modal-title">Loing in</h2>
           </div>
           <div class="modal-body">
