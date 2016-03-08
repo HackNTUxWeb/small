@@ -25,13 +25,14 @@
     <!-- facebook -->
     <div id="fb-root"></div>
     <script>
+      var myAppId = '1691957414394781';
       var uid;
       var accessToken;
       var login = false;
 
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '1691957414394781',
+          appId      : myAppId,
           xfbml      : true,
           version    : 'v2.5',
           channelUrl : 'http://hackntuxweb.github.io/small/Azalea/web/'
@@ -85,11 +86,26 @@
           function (response) {
             if (response) {
               /* handle the result */
-              console.log("score reponse: " + response.success);
-              console.log("score reponse: " + response.error);
+              console.log("update score true: " + response.success);
             }
           }
         );
+      }
+
+      function FBAskfriendScores() {
+        FB.api() {
+          "/" + myAppId + "/scores",
+          "GET",
+          {
+            "access_token": access_token;
+          }, function (response) {
+            if (response && !response.error) {
+              console.log("score" + response[0].user.name + ", " + reponse[0].score);
+              return response;
+            }
+          }
+        }
+
       }
     </script>
 
