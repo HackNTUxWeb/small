@@ -77,7 +77,7 @@
       }
 
       function FBupdateSore(newScore) {
-        var lastScore;
+        var lastScore = -1;
         /* get old score */
         FB.api(
           "/" + uid + "/scores",
@@ -89,7 +89,6 @@
                 if (record.score > lastScore)
                   lastScore = record.score;
               }
-              console.log("get highest score: " + lastScore);
             }
           }
         );
