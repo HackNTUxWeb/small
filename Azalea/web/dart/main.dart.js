@@ -397,7 +397,7 @@ return z+0}throw H.c(new P.F(""+a))},
 i:function(a){if(a===0&&1/a<0)return"-0.0"
 else return""+a},
 gp:function(a){return a&0x1FFFFFFF},
-F:function(a,b){if(typeof b!=="number")throw H.c(H.v(b))
+D:function(a,b){if(typeof b!=="number")throw H.c(H.v(b))
 return a+b},
 b4:function(a,b){if(typeof b!=="number")throw H.c(H.v(b))
 return a-b},
@@ -440,7 +440,7 @@ av:{
 a4:function(a,b){if(b<0)throw H.c(H.p(a,b))
 if(b>=a.length)throw H.c(H.p(a,b))
 return a.charCodeAt(b)},
-F:function(a,b){if(typeof b!=="string")throw H.c(P.c3(b,null,null))
+D:function(a,b){if(typeof b!=="string")throw H.c(P.c3(b,null,null))
 return a+b},
 b5:function(a,b,c){var z
 if(typeof b!=="number"||Math.floor(b)!==b)H.o(H.v(b))
@@ -1700,19 +1700,19 @@ if(y==null)return!1
 return this.bb(y,a)}else return this.da(a)},
 da:function(a){var z=this.d
 if(z==null)return!1
-return this.a9(this.D(z,this.a8(a)),a)>=0},
+return this.a9(this.E(z,this.a8(a)),a)>=0},
 h:function(a,b){var z,y,x
 if(typeof b==="string"){z=this.b
 if(z==null)return
-y=this.D(z,b)
+y=this.E(z,b)
 return y==null?null:y.gR()}else if(typeof b==="number"&&(b&0x3ffffff)===b){x=this.c
 if(x==null)return
-y=this.D(x,b)
+y=this.E(x,b)
 return y==null?null:y.gR()}else return this.dc(b)},
 dc:function(a){var z,y,x
 z=this.d
 if(z==null)return
-y=this.D(z,this.a8(a))
+y=this.E(z,this.a8(a))
 x=this.a9(y,a)
 if(x<0)return
 return y[x].gR()},
@@ -1726,7 +1726,7 @@ de:function(a,b){var z,y,x,w
 z=this.d
 if(z==null){z=this.aC()
 this.d=z}y=this.a8(a)
-x=this.D(z,y)
+x=this.E(z,y)
 if(x==null)this.aG(z,y,[this.ap(a,b)])
 else{w=this.a9(x,a)
 if(w>=0)x[w].sR(b)
@@ -1737,7 +1737,7 @@ else return this.dd(b)},
 dd:function(a){var z,y,x,w
 z=this.d
 if(z==null)return
-y=this.D(z,this.a8(a))
+y=this.E(z,this.a8(a))
 x=this.a9(y,a)
 if(x<0)return
 w=y.splice(x,1)[0]
@@ -1756,12 +1756,12 @@ y=this.r
 for(;z!=null;){b.$2(z.a,z.b)
 if(y!==this.r)throw H.c(new P.y(this))
 z=z.c}},
-b6:function(a,b,c){var z=this.D(a,b)
+b6:function(a,b,c){var z=this.E(a,b)
 if(z==null)this.aG(a,b,this.ap(b,c))
 else z.sR(c)},
 b7:function(a,b){var z
 if(a==null)return
-z=this.D(a,b)
+z=this.E(a,b)
 if(z==null)return
 this.b8(z)
 this.bc(a,b)
@@ -1790,10 +1790,10 @@ z=a.length
 for(y=0;y<z;++y)if(J.O(a[y].gbH(),b))return y
 return-1},
 i:function(a){return P.cn(this)},
-D:function(a,b){return a[b]},
+E:function(a,b){return a[b]},
 aG:function(a,b,c){a[b]=c},
 bc:function(a,b){delete a[b]},
-bb:function(a,b){return this.D(a,b)!=null},
+bb:function(a,b){return this.E(a,b)!=null},
 aC:function(){var z=Object.create(null)
 this.aG(z,"<non-identifier-key>",z)
 this.bc(z,"<non-identifier-key>")
@@ -2989,7 +2989,7 @@ bg:{
 "+double":0,
 P:{
 "^":"b;ae:a<",
-F:function(a,b){return new P.P(C.b.F(this.a,b.gae()))},
+D:function(a,b){return new P.P(C.b.D(this.a,b.gae()))},
 b4:function(a,b){return new P.P(this.a-b.gae())},
 L:function(a,b){if(b===0)throw H.c(new P.e5())
 return new P.P(C.b.L(this.a,b))},
@@ -3411,7 +3411,7 @@ $ash:function(){return[W.D]},
 $ism:1},
 fm:{
 "^":"c7;a",
-E:function(){var z,y,x,w,v
+F:function(){var z,y,x,w,v
 z=P.Q(null,null,null,P.E)
 for(y=this.a.className.split(" "),x=y.length,w=0;w<y.length;y.length===x||(0,H.dv)(y),++w){v=J.c2(y[w])
 if(v.length!==0)z.q(0,v)}return z},
@@ -3588,7 +3588,7 @@ $ise:1,
 "%":"SVGScriptElement"},
 ff:{
 "^":"c7;a",
-E:function(){var z,y,x,w,v,u
+F:function(){var z,y,x,w,v,u
 z=this.a.getAttribute("class")
 y=P.Q(null,null,null,P.E)
 if(z==null)return y
@@ -3886,32 +3886,32 @@ c7:{
 "^":"b;",
 aJ:function(a){if($.$get$c8().b.test(H.df(a)))return a
 throw H.c(P.c3(a,"value","Not a valid class token"))},
-i:function(a){return this.E().aP(0," ")},
+i:function(a){return this.F().aP(0," ")},
 b_:function(a,b,c){var z,y
 this.aJ(b)
-z=this.E()
+z=this.F()
 if(!z.X(0,b)){z.q(0,b)
 y=!0}else{z.Z(0,b)
 y=!1}this.b2(z)
 return y},
 ab:function(a,b){return this.b_(a,b,null)},
 gv:function(a){var z,y
-z=this.E()
+z=this.F()
 y=new P.bs(z,z.r,null,null)
 y.c=z.e
 return y},
-t:function(a,b){this.E().t(0,b)},
-T:function(a,b){var z=this.E()
+t:function(a,b){this.F().t(0,b)},
+T:function(a,b){var z=this.F()
 return H.i(new H.bn(z,b),[H.G(z,0),null])},
-gj:function(a){return this.E().a},
+gj:function(a){return this.F().a},
 X:function(a,b){if(typeof b!=="string")return!1
 this.aJ(b)
-return this.E().X(0,b)},
+return this.F().X(0,b)},
 aS:function(a){return this.X(0,a)?a:null},
 q:function(a,b){this.aJ(b)
 return this.dh(new P.dS(b))},
 dh:function(a){var z,y
-z=this.E()
+z=this.F()
 y=a.$1(z)
 this.b2(z)
 return y},
@@ -3929,7 +3929,7 @@ $.bX=document.querySelector(".start-button")
 $.bf=document.querySelector(".time-dispaly")
 $.aa=0
 $.b4=0
-$.Y=1
+$.Y=0
 $.b9=!1
 $.bH=new F.hu()},
 hm:function(){var z=J.bh($.dm)
@@ -3940,17 +3940,20 @@ z=J.bh($.b6)
 H.i(new W.ai(0,z.a,z.b,W.W(new F.hr()),z.c),[H.G(z,0)]).N()
 z=J.c0(document.querySelector("close-login-modal"))
 H.i(new W.ai(0,z.a,z.b,W.W(new F.hs()),z.c),[H.G(z,0)]).N()},
-hO:function(){var z,y,x
+hO:function(){var z,y,x,w
 z=document.querySelector("#myModal")
 J.Z(z).ab(0,"hidden")
-J.dH(z.querySelector(".result-picture"),"source/"+H.a($.Y)+".png")
-z.querySelector(".result-score").textContent="\u4f60\u6309\u4e86"+H.a($.aa)+"\u4e0b"
-y=z.querySelector("p")
+y=z.querySelector(".result-picture")
 x=$.Y
-if(typeof x!=="number")return x.dr()
-y.textContent="\u4f60\u6210\u529f\u7834\u58de\u623f\u5b50"+x*10+"%\uff01...."
-x=J.c0(z.querySelector(".restart-btn"))
-H.i(new W.ai(0,x.a,x.b,W.W(new F.hP()),x.c),[H.G(x,0)]).N()
+if(typeof x!=="number")return x.D()
+J.dH(y,"source/"+(x+1)+".png")
+z.querySelector(".result-score").textContent="\u4f60\u6309\u4e86"+H.a($.aa)+"\u4e0b"
+x=z.querySelector("p")
+w=$.Y
+if(typeof w!=="number")return w.dr()
+x.textContent="\u4f60\u6210\u529f\u7834\u58de\u623f\u5b50"+w*10+"%\uff01...."
+w=J.c0(z.querySelector(".restart-btn"))
+H.i(new W.ai(0,w.a,w.b,W.W(new F.hP()),w.c),[H.G(w,0)]).N()
 $.$get$dg().cT("FBupdateSore",[H.a($.aa)])},
 hu:{
 "^":"d:16;",
@@ -3959,7 +3962,7 @@ z=$.bN
 if(z==null){$.bN=a
 z=a}a=J.dA(a,z)
 z=$.b4
-if(typeof z!=="number")return z.F();++z
+if(typeof z!=="number")return z.D();++z
 $.b4=z
 if(z===5){$.b4=0
 z=J.K(a)
@@ -3971,19 +3974,19 @@ x.textContent=""+(10-z)+".0s"}else{y=z.L(a,1000)
 if(typeof y!=="number")return H.N(y)
 x.textContent=""+(9-y)+"."+H.a(10-J.bY(z.L(a,100),10))+"s"}z=$.Y
 if(typeof z!=="number")return z.V()
-if(z<10){y=$.aa
+if(z<10){y=$.aa;++z
 if(typeof y!=="number")return y.a0()
 z=y>z*z+5}else z=!1
 if(z){P.aF("in")
-J.Z($.b6.querySelector(".gh-"+H.a($.Y))).ab(0,"hidden")
+z=$.Y
+if(typeof z!=="number")return z.D();++z
+$.Y=z
+J.Z($.b6.querySelector(".gh-"+z)).ab(0,"hidden")
 z=$.b6
 y=$.Y
-if(typeof y!=="number")return y.F()
+if(typeof y!=="number")return y.D()
 J.Z(z.querySelector(".gh-"+(y+1))).ab(0,"hidden")
-y=$.Y
-if(typeof y!=="number")return y.F();++y
-$.Y=y
-P.aF("level: "+y)}$.ds.textContent=H.a($.aa)}if(J.dx(a,1000)>=10){$.bf.textContent="0.0s"
+P.aF("level: "+H.a($.Y))}$.ds.textContent=H.a($.aa)}if(J.dx(a,1000)>=10){$.bf.textContent="0.0s"
 $.b9=!1
 F.hO()}else{z=window
 y=$.bH
@@ -4013,7 +4016,7 @@ hr:{
 "^":"d:1;",
 $1:[function(a){var z
 if($.b9===!0){z=$.aa
-if(typeof z!=="number")return z.F()
+if(typeof z!=="number")return z.D()
 $.aa=z+1}},null,null,2,0,null,0,"call"]},
 hs:{
 "^":"d:1;",
@@ -4059,7 +4062,7 @@ if(typeof a!="object")return a
 if(a instanceof P.b)return a
 return J.b8(a)}
 J.an=function(a,b){if(typeof a=="number"&&typeof b=="number")return a+b
-return J.hj(a).F(a,b)}
+return J.hj(a).D(a,b)}
 J.dx=function(a,b){if(typeof a=="number"&&typeof b=="number")return a/b
 return J.K(a).bZ(a,b)}
 J.O=function(a,b){if(a==null)return b==null
@@ -4161,6 +4164,35 @@ C.r=function(getTagFallback) {
     hooks.getTag = getTagFallback;
   };
 }
+C.u=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
+}
 C.t=function() {
   function typeNameInChrome(o) {
     var constructor = o.constructor;
@@ -4196,35 +4228,6 @@ C.t=function() {
     getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
     prototypeForTag: prototypeForTag,
     discriminator: discriminator };
-}
-C.u=function(hooks) {
-  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
-  if (userAgent.indexOf("Trident/") == -1) return hooks;
-  var getTag = hooks.getTag;
-  var quickMap = {
-    "BeforeUnloadEvent": "Event",
-    "DataTransfer": "Clipboard",
-    "HTMLDDElement": "HTMLElement",
-    "HTMLDTElement": "HTMLElement",
-    "HTMLPhraseElement": "HTMLElement",
-    "Position": "Geoposition"
-  };
-  function getTagIE(o) {
-    var tag = getTag(o);
-    var newTag = quickMap[tag];
-    if (newTag) return newTag;
-    if (tag == "Object") {
-      if (window.DataView && (o instanceof window.DataView)) return "DataView";
-    }
-    return tag;
-  }
-  function prototypeForTagIE(tag) {
-    var constructor = window[tag];
-    if (constructor == null) return null;
-    return constructor.prototype;
-  }
-  hooks.getTag = getTagIE;
-  hooks.prototypeForTag = prototypeForTagIE;
 }
 C.v=function(hooks) {
   var getTag = hooks.getTag;

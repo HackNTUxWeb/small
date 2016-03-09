@@ -106,8 +106,9 @@
           "/" + myAppId + "/scores",
           function(response) {
             if (response) {
-              console.log(response.user.name);
-              console.log(response.error);
+              console.log("get " + response);
+              console.log("result " + response.user.name);
+              console.log("error " + response.error);
             }
           }
         );
@@ -134,6 +135,7 @@
               <img src="source/8.png" width="100%" class="gh-8 hidden">
               <img src="source/9.png" width="100%" class="gh-9 hidden">
               <img src="source/10.png" width="100%" class="gh-10 hidden">
+              <img src="source/10.png" width="100%" class="gh-11 hidden">
             </div>
             <div class="col-md-3 col-xs-1"></div>
           </div>
