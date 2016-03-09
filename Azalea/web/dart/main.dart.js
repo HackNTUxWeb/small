@@ -4557,7 +4557,7 @@ iV:{
 $1:[function(a){var z,y,x,w
 for(z=J.U(a),y="";z.k();){x=z.gn()
 w=J.I(x)
-y+="<li class=\"list-group-item\">"+H.a(w.h(x,"name"))+"<span class=\"score\">"+H.a(w.h(x,"score"))+"</span></li>"}J.ee(document.querySelector("friends-sores-list"),y)},null,null,2,0,null,32,"call"]},
+y+="<li class=\"list-group-item\">"+H.a(w.h(x,"name"))+"<span class=\"badge score\">"+H.a(w.h(x,"score"))+"</span></li>"}J.ee(document.querySelector("friends-sores-list"),y)},null,null,2,0,null,32,"call"]},
 il:{
 "^":"d:0;a",
 $1:[function(a){var z,y,x,w,v,u

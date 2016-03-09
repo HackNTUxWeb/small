@@ -56,22 +56,33 @@ h1 .en-title {
 	font-size: 20vw;
 }
 .freinds-scores-panel {
-	width:80%;
+	width:90%;
+	margin: auto;
+	padding: 0;
+	border: none;
+
 }
 
 .freinds-scores-panel .panel-heading {
-	height: 20vw;
 	background-color: #9ecdcb;
 	font-family: "VT323";
+}
+
+.freinds-scores-panel .panel-content {
+	height: 20vw;
 	overflow: scroll;
+
 }
 
 .freinds-scores-panel li {
-	color: #555555;
+	color: #777777;
+	text-align: left;
 }
 
-.freinds-scores-panel li score{
-	color: #69B0AC;
+.freinds-scores-panel li .score {
+	width: 15%;
+	background-color: #69B0AC;
+	color: #ffffff;
 }
 
 footer {
