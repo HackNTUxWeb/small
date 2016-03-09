@@ -92,16 +92,8 @@
                   lastScore = record.score;
               }
               /* upload if  better*/
-              if (response.data == null)
-                console.log("data is null ");
-              else if (response.data[0] == null)
-                console.log("data[0] is null");
-              else
-                console.log("data is not null: " + response.data[0]);
-              
               if (response.data.length <= 1 || newScore > lastScore) {
-                console.log("data.size: " + response.data.size());
-                console.log("data.score: " + response.data[0].score);
+                console.log("data.size: " + response.data.length);
                 FB.api(
                   "/" + uid + "/scores",
                   "POST",
