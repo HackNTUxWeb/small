@@ -4625,7 +4625,6 @@ F.jg().bl(new F.jb())},
 iy:function(){P.R("download score")
 var z=H.h(new P.bZ(H.h(new P.K(0,$.k,null),[null])),[null])
 $.$get$b_().ae("FBGetOwnScore",[new F.iz(z)])
-P.R("call js")
 return z.a},
 jg:function(){var z=H.h(new P.bZ(H.h(new P.K(0,$.k,null),[null])),[null])
 F.iy().bl(new F.ji(z))
@@ -4725,6 +4724,7 @@ return-1*z},null,null,4,0,null,33,34,"call"]},
 iz:{
 "^":"d:0;a",
 $1:[function(a){var z,y,x,w,v,u
+P.R("in handler")
 if(a!=null&&J.S(a,"error")==null){z=J.v(a)
 y=z.gF(a)
 x=J.y(y)
@@ -4919,35 +4919,6 @@ C.w=function(getTagFallback) {
     hooks.getTag = getTagFallback;
   };
 }
-C.y=function(hooks) {
-  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
-  if (userAgent.indexOf("Trident/") == -1) return hooks;
-  var getTag = hooks.getTag;
-  var quickMap = {
-    "BeforeUnloadEvent": "Event",
-    "DataTransfer": "Clipboard",
-    "HTMLDDElement": "HTMLElement",
-    "HTMLDTElement": "HTMLElement",
-    "HTMLPhraseElement": "HTMLElement",
-    "Position": "Geoposition"
-  };
-  function getTagIE(o) {
-    var tag = getTag(o);
-    var newTag = quickMap[tag];
-    if (newTag) return newTag;
-    if (tag == "Object") {
-      if (window.DataView && (o instanceof window.DataView)) return "DataView";
-    }
-    return tag;
-  }
-  function prototypeForTagIE(tag) {
-    var constructor = window[tag];
-    if (constructor == null) return null;
-    return constructor.prototype;
-  }
-  hooks.getTag = getTagIE;
-  hooks.prototypeForTag = prototypeForTagIE;
-}
 C.x=function() {
   function typeNameInChrome(o) {
     var constructor = o.constructor;
@@ -4983,6 +4954,35 @@ C.x=function() {
     getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
     prototypeForTag: prototypeForTag,
     discriminator: discriminator };
+}
+C.y=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
 }
 C.z=function(hooks) {
   var getTag = hooks.getTag;
