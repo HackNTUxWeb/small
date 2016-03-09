@@ -93,7 +93,8 @@
               }
               /* upload if  better*/
               if (response.data.size() <= 1 || newScore > lastScore) {
-                console.log("data: " + response.data);
+
+                console.log("data: " + (response.data == null);
                 console.log("data.size: " + response.data.size());
                 console.log("data.score: " + response.data[0].score);
                 FB.api(
@@ -109,8 +110,6 @@
                   }
                 ); 
               }
-            } else if (response) {
-              console.log('response error: ' + response.error.message);
             }
           }
         );
