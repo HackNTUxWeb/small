@@ -77,38 +77,21 @@
         }
       }
 
-      function FBupdateSore(newScore) {
-        console.log("FBupdateSore");
-        /* get old score */
+      function FBGetOwnScore(handler) {
         FB.api(
           "/" + uid + "/scores",
-          function (response) {
-            if (response && !response.error) {
-              console.log("get old score");
-              /* handle the result */
-              var lastScore = response.data[0].score;
-              for (record in response.data) {
-                if (record.score > lastScore)
-                  lastScore = record.score;
-              }
-              /* upload if  better*/
-              if (response.data.length <= 1 || newScore > lastScore) {
-                console.log("data.size: " + response.data.length);
-                FB.api(
-                  "/" + uid + "/scores",
-                  "POST",
-                  {
-                      "score": newScore
-                  },
-                  function (response) {
-                    if (response) {
-                      /* handle the result */
-                    }
-                  }
-                ); 
-              }
-            }
-          }
+          handler
+          );
+      }
+
+      function FBupdateSore(newScore, handler) {
+        FB.api(
+          "/" + uid + "/scores",
+          "POST",
+          {
+            "score": newScore
+          },
+          handler
         );
       }
 
