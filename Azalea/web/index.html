@@ -117,18 +117,14 @@
         );
       }
 
-      function FBAskfriendScoresTest() {
-        console.log("test ask user_friends");
-        FB.api(
-          "/" + myAppId + "/scores",
-          function(response) {
-            if (response && !response.error) {
-              console.log("get " + response);
-              console.log("result " + response.data[0].user.name);
-              console.log("result " + response[0].user.name);
-            }
-          }
-        );
+      function FBShareScore(score, level) {
+                FB.ui({
+          method: 'feed',
+          link: 'https://developers.facebook.com/docs/',
+          caption: 'An example caption',
+          description:,
+          picture: 'http://hackntuxweb.github.io/small/Azalea/web/source/share' + level +'.png'
+        }, function(response){});
       }
     </script>
 
@@ -142,7 +138,8 @@
           <div class="row">
             <div class="col-md-3 col-xs-1"></div>
             <div class="game-canvas col-md-6 col-xs-10">
-              <img src="source/1.png" width="100%" class="gh-1">
+              <img src="source/10.png" width="100%" class="gh-0">
+              <img src="source/1.png" width="100%" class="gh-1 hidden">
               <img src="source/2.png" width="100%" class="gh-2 hidden">
               <img src="source/3.png" width="100%" class="gh-3 hidden">
               <img src="source/4.png" width="100%" class="gh-4 hidden">
@@ -152,7 +149,6 @@
               <img src="source/8.png" width="100%" class="gh-8 hidden">
               <img src="source/9.png" width="100%" class="gh-9 hidden">
               <img src="source/10.png" width="100%" class="gh-10 hidden">
-              <img src="source/10.png" width="100%" class="gh-11 hidden">
             </div>
             <div class="col-md-3 col-xs-1"></div>
           </div>
