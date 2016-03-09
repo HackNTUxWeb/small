@@ -96,21 +96,14 @@
       function FBAskfriendScores(handler) {
         FB.api(
           "/" + myAppId + "/scores",
-          "GET",
-          {
-            "access_token": accessToken
-          }, 
           handler
         );
       }
 
       function FBAskfriendScoresTest() {
+        console.log("test ask user_friends");
         FB.api(
           "/" + myAppId + "/scores",
-          "GET",
-          {
-            "access_token": accessToken
-          }, 
           function(response) {
             if (response) {
               console.log(response.user.name);
@@ -186,10 +179,9 @@
           <div class="modal-footer">
             <div class="fb-share-button" data-href="http://hackntuxweb.github.io/small/Azalea/web/" data-width="200" data-type="button"></div>
             <button type="button" class="btn btn-default modal-btn restart-btn">restart</button>
-            <button onclick="FBAskfriendScoresTest()" class="test-btn">getScores</button>
+            <button type="button" onclick="FBAskfriendScoresTest()" class="btn btn-default modal-btn test-btn">getScores</button>
           </div>
         </div>
-
       </div>
     </div>
 
