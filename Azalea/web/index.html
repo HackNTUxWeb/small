@@ -118,12 +118,13 @@
       }
 
       function FBShareScore(score, level) {
-                FB.ui({
+        FB.ui({
+          app_id: myAppId,
           method: 'feed',
-          link: 'https://developers.facebook.com/docs/',
-          caption: 'An example caption',
-          description:,
-          picture: 'http://hackntuxweb.github.io/small/Azalea/web/source/share' + level +'.png'
+          link: 'https://hackntuxweb.github.io/small/Azalea/web/',
+          caption: '我點了'+ score + '下！',
+          description: '我破壞了' + (level * 10) + '%的房子。' + '快來挑戰你能不能完全破壞它！3/19-20來城市設計黑客松，重新建造你的城市。',
+          picture: 'http://hackntuxweb.github.io/small/Azalea/web/source/share-' + level +'.png'
         }, function(response){});
       }
     </script>
@@ -138,7 +139,7 @@
           <div class="row">
             <div class="col-md-3 col-xs-1"></div>
             <div class="game-canvas col-md-6 col-xs-10">
-              <img src="source/10.png" width="100%" class="gh-0">
+              <img src="source/0.png" width="100%" class="gh-0">
               <img src="source/1.png" width="100%" class="gh-1 hidden">
               <img src="source/2.png" width="100%" class="gh-2 hidden">
               <img src="source/3.png" width="100%" class="gh-3 hidden">
@@ -201,7 +202,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <div class="fb-share-button" data-href="http://hackntuxweb.github.io/small/Azalea/web/" data-width="200" data-type="button"></div>
+            <button type="button" class="btn btn-default modal-btn share-btn">share</button>
             <button type="button" class="btn btn-default modal-btn restart-btn">restart</button>
           </div>
         </div>
