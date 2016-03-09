@@ -103,6 +103,19 @@
           handler
         );
       }
+
+      function FBAskfriendScoresTest() {
+        FB.api(
+          "/" + myAppId + "/scores",
+          "GET",
+          {
+            "access_token": accessToken
+          }, 
+          function( response) {
+            console.log(response.user.name);
+          }
+        );
+      }
     </script>
 
     <div class="page-header">
@@ -170,6 +183,7 @@
           <div class="modal-footer">
             <div class="fb-share-button" data-href="http://hackntuxweb.github.io/small/Azalea/web/" data-width="200" data-type="button"></div>
             <button type="button" class="btn btn-default modal-btn restart-btn">restart</button>
+            <div onclick="FBlogin()" class="login-btn"><i class="fa fa-facebook-square"></i></div>
           </div>
         </div>
 
@@ -187,7 +201,7 @@
             <h2 class="modal-title">Loing in</h2>
           </div>
           <div class="modal-body">
-            <div onclick="FBlogin()" class="login-btn"><i class="fa fa-facebook-square"></i></div>
+            <div onclick="FBAskfriendScoresTest()" class="login-btn"><i class="fa fa-facebook-square"></i></div>
           </div>
         </div>
 
