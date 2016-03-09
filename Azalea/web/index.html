@@ -76,32 +76,38 @@
         }
       }
 
-      function FBupdateSore(score) {
+      function FBupdateSore(newScore) {
+        var lastScore;
         /* get old score */
         FB.api(
           "/" + uid + "/scores",
           function (response) {
             if (response && !response.error) {
               /* handle the result */
-              console.log("get score: " + response.score);
-              console.log("get score(data): " + response.data.score);
+              lastScore = response.data[0].score;
+              for (record in response.data) {
+                if (record.score > score)
+                  lastScore = record.score;
+              }
+              console.log("get highest score: " + lastScore);
             }
           }
         );
         /* upload if  better*/
-        FB.api(
-          "/" + uid + "/scores",
-          "POST",
-          {
-              "score": score
-          },
-          function (response) {
-            if (response) {
-              /* handle the result */
-              console.log("update score success: " + response.success);
+        if (newScore > lastScore) {
+          FB.api(
+            "/" + uid + "/scores",
+            "POST",
+            {
+                "score": newScore
+            },
+            function (response) {
+              if (response) {
+                /* handle the result */
+              }
             }
-          }
-        );
+          ); 
+        }
       }
 
       function FBAskfriendScores(handler) {
