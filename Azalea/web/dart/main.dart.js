@@ -4548,7 +4548,7 @@ z.querySelector(".result-score").textContent="\u4f60\u9ede\u4e86"+H.a($.a_)+"\u4
 y=z.querySelector("p")
 x=$.ao
 if(typeof x!=="number")return x.ec()
-y.textContent="\u4f60\u6210\u529f\u7834\u58de\u623f\u5b50"+x*10+"%\uff01...."
+y.textContent="\u4f60\u6210\u529f\u7834\u58de\u623f\u5b50"+x*10+"%\uff01\u68c4\u820a\u624d\u80fd\u63db\u65b0\uff0c\u7834\u58de\u624d\u80fd\u91cd\u5efa\uff0c3/19, 20\u4f86\u57ce\u5e02\u8a2d\u8a08\u9ed1\u5ba2\u677e\uff0c\u5275\u9020\u66f4\u597d\u7684\u65b0\u7684\u57ce\u5e02\uff01"
 x=J.bv(z.querySelector(".restart-btn"))
 H.h(new W.ah(0,x.a,x.b,W.Z(new F.j3()),x.c),[H.M(x,0)]).N()
 x=J.bv(z.querySelector(".share-btn"))
@@ -4841,35 +4841,6 @@ C.w=function(getTagFallback) {
     hooks.getTag = getTagFallback;
   };
 }
-C.y=function(hooks) {
-  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
-  if (userAgent.indexOf("Trident/") == -1) return hooks;
-  var getTag = hooks.getTag;
-  var quickMap = {
-    "BeforeUnloadEvent": "Event",
-    "DataTransfer": "Clipboard",
-    "HTMLDDElement": "HTMLElement",
-    "HTMLDTElement": "HTMLElement",
-    "HTMLPhraseElement": "HTMLElement",
-    "Position": "Geoposition"
-  };
-  function getTagIE(o) {
-    var tag = getTag(o);
-    var newTag = quickMap[tag];
-    if (newTag) return newTag;
-    if (tag == "Object") {
-      if (window.DataView && (o instanceof window.DataView)) return "DataView";
-    }
-    return tag;
-  }
-  function prototypeForTagIE(tag) {
-    var constructor = window[tag];
-    if (constructor == null) return null;
-    return constructor.prototype;
-  }
-  hooks.getTag = getTagIE;
-  hooks.prototypeForTag = prototypeForTagIE;
-}
 C.x=function() {
   function typeNameInChrome(o) {
     var constructor = o.constructor;
@@ -4905,6 +4876,35 @@ C.x=function() {
     getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
     prototypeForTag: prototypeForTag,
     discriminator: discriminator };
+}
+C.y=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
 }
 C.z=function(hooks) {
   var getTag = hooks.getTag;
