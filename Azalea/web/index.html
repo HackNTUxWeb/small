@@ -78,11 +78,13 @@
       }
 
       function FBupdateSore(newScore) {
+        console.log("FBupdateSore");
         /* get old score */
         FB.api(
           "/" + uid + "/scores",
           function (response) {
             if (response && !response.error) {
+              console.log("get old score");
               /* handle the result */
               var lastScore = response.data[0].score;
               for (record in response.data) {
@@ -107,6 +109,8 @@
                   }
                 ); 
               }
+            } else if (response) {
+              console.log('response error': response.error.message);
             }
           }
         );
