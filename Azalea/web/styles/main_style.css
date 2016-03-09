@@ -51,10 +51,24 @@ h1 .en-title {
 	font-family: "VT323";
 }
 
+.game-canvas {
+    -ms-touch-action: manipulation;	/* IE10  */
+	touch-action: manipulation;/* IE11  */
+}
+
+.hammer-cursor {
+	cursor: url("../source/hammer.png"), pointer;
+}
+
+.hammer-cursor:active {
+	cursor: url("../source/hammer2.png"), pointer;
+}
+
 #loginModal i {
 	color: #69B0AC;
 	font-size: 20vw;
 }
+
 .freinds-scores-panel {
 	width:90%;
 	margin: auto;
