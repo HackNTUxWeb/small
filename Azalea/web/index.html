@@ -94,7 +94,12 @@
               /* upload if  better*/
               if (response.data == null)
                 console.log("data is null ");
-              if (response.data.size() <= 1 || newScore > lastScore) {
+              else if (response.data[0] == null)
+                console.log("data[0] is null");
+              else
+                console.log("data is not null: " + response.data[0]);
+              
+              if (response.data.length <= 1 || newScore > lastScore) {
                 console.log("data.size: " + response.data.size());
                 console.log("data.score: " + response.data[0].score);
                 FB.api(
