@@ -55,6 +55,24 @@ h1 .en-title {
 	color: #69B0AC;
 	font-size: 20vw;
 }
+.freinds-scores-panel {
+	width:80%;
+}
+
+.freinds-scores-panel .panel-heading {
+	height: 20vw;
+	background-color: #9ecdcb;
+	font-family: "VT323";
+	overflow: scroll;
+}
+
+.freinds-scores-panel li {
+	color: #555555;
+}
+
+.freinds-scores-panel li score{
+	color: #69B0AC;
+}
 
 footer {
 	text-align: center;
