@@ -105,10 +105,10 @@
         FB.api(
           "/" + myAppId + "/scores",
           function(response) {
-            if (response) {
+            if (response && !response.error) {
               console.log("get " + response);
-              console.log("result " + response.user.name);
-              console.log("error " + response.error);
+              console.log("result " + response.data[0].user.name);
+              console.log("result " + response[0].user.name);
             }
           }
         );
