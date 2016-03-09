@@ -77,7 +77,18 @@
       }
 
       function FBupdateSore(score) {
-        /* make the API call */
+        /* get old score */
+        FB.api(
+          "/" + uid + "/scores",
+          function (response) {
+            if (response && !response.error) {
+              /* handle the result */
+              console.log("get score: " + response.score);
+              console.log("get score(data): " + response.data.score);
+            }
+          }
+        );
+        /* upload if  better*/
         FB.api(
           "/" + uid + "/scores",
           "POST",
@@ -87,7 +98,7 @@
           function (response) {
             if (response) {
               /* handle the result */
-              console.log("update score true: " + response.success);
+              console.log("update score success: " + response.success);
             }
           }
         );
