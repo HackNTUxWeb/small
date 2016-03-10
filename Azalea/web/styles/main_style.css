@@ -83,9 +83,12 @@ h1 .en-title {
 }
 
 .freinds-scores-panel .panel-content {
-	height: 20vw;
-	overflow: scroll;
 
+}
+
+.friends-sores-list {
+	max-height: 20vh;
+	overflow: scroll;
 }
 
 .freinds-scores-panel li {
