@@ -78,7 +78,6 @@
       }
 
       function FBGetOwnScore(handler) {
-        console.log("get own" + (handler == null));
         FB.api(
           "/" + uid + "/scores",
           handler
@@ -86,7 +85,8 @@
       }
 
       function FBupdateSore(newScore, handler) {
-        console.log("update own" + (handler == null) + (newScore == null));
+        console.log("update own score " + newScore);
+        console.log("update own uid " + uid);
         FB.api(
           "/" + uid + "/scores",
           "POST",
@@ -98,7 +98,6 @@
       }
 
       function FBAskfriendScores(handler) {
-        console.log("ask friend" + (handler == null));
         FB.api(
           "/" + myAppId + "/scores",
           handler
