@@ -88,7 +88,7 @@ h1 .en-title {
 }
 
 .friends-sores-list {
-	max-height: 20vh;
+	max-height: 10vh;
 	overflow: scroll;
 }
 
