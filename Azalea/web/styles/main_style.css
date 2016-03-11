@@ -71,6 +71,7 @@ h1 .en-title {
 
 #myModal p {
 	width:90%;
+	margin: auto;
 }
 
 .freinds-scores-panel {
@@ -84,10 +85,6 @@ h1 .en-title {
 .freinds-scores-panel .panel-heading {
 	background-color: #9ecdcb;
 	font-family: "VT323";
-}
-
-.freinds-scores-panel .panel-content {
-
 }
 
 .friends-sores-list {
