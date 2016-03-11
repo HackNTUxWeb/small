@@ -1,5 +1,6 @@
 import 'dart:html';
 import 'dart:async';
+import 'dart:math';
 import 'dart:js' as js;
 
 import 'comment.dart';
@@ -113,7 +114,9 @@ void showResult() {
   resultImg.src = "source/${level}.png";
 
   modal.querySelector(".result-score").text = "你點了${cnt}下";
-  modal.querySelector("p").text = "你成功破壞房子${level*10}%！棄舊才能換新，破壞才能重建，3/19, 20來城市設計黑客松，創造更好的新的城市！";
+  int commentIndex = min(cnt ~/ 5, comments.length);
+  modal.querySelector(".commet").text = "你破壞了${level*10}%的房子！${comments[commentIndex]}";
+  modal.querySelector(".ad").innerHtml = "棄舊才能換新，破壞才能重建<br>3/19, 20來城市設計黑客松，創造更好的新的城市！";
 
   modal.querySelector(".restart-btn").onClick.listen((MouseEvent) => window.location.reload()); 
   modal.querySelector(".share-btn").onClick.listen((MouseEvent) => js.context.callMethod("FBShareScore", [cnt, level])); 
@@ -130,7 +133,23 @@ void showResult() {
   });
 }
 
-int levelUp() => (level)*(level) + 5;
+int levelUp() {
+  switch(level) {
+    case 0: return 5;
+    case 1: return 15;
+    case 2: return 30;
+    case 3: return 40;
+    case 4: return 55;
+    case 5: return 70;
+    case 6: return 80;
+    case 7: return 90;
+    case 8: return 95;
+    case 9: return 100;
+    default: return 150;
+  }
+  // (level+1) * (level+1) + 5;
+  // return 10 * (level + 1);
+}
 
 Future downloadScore() {
   //print("download score");
