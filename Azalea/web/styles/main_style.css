@@ -69,6 +69,10 @@ h1 .en-title {
 	font-size: 20vw;
 }
 
+#myModal p {
+	width:90%;
+}
+
 .freinds-scores-panel {
 	width:90%;
 	margin: auto;
