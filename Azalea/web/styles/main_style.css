@@ -51,9 +51,60 @@ h1 .en-title {
 	font-family: "VT323";
 }
 
+.game-canvas {
+    -ms-touch-action: manipulation;	/* IE10  */
+	touch-action: manipulation;/* IE11  */
+}
+
+.hammer-cursor {
+	cursor: url("../source/hammer.png"), pointer;
+}
+
+.hammer-cursor:active {
+	cursor: url("../source/hammer2.png"), pointer;
+}
+
 #loginModal i {
 	color: #69B0AC;
 	font-size: 20vw;
+}
+
+#myModal p {
+	width:90%;
+	margin: auto;
+}
+
+.freinds-scores-panel {
+	width:90%;
+	margin: auto;
+	padding: 0;
+	border: none;
+	box-shadow: none;
+}
+
+.freinds-scores-panel .panel-heading {
+	background-color: #9ecdcb;
+	font-family: "VT323";
+}
+
+.freinds-scores-panel .panel-content {
+
+}
+
+.friends-sores-list {
+	max-height: 20vh;
+	overflow: scroll;
+}
+
+.freinds-scores-panel li {
+	color: #777777;
+	text-align: left;
+}
+
+.freinds-scores-panel li .score {
+	width: 15%;
+	background-color: #69B0AC;
+	color: #ffffff;
 }
 
 footer {

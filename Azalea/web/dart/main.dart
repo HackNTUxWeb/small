@@ -2,6 +2,8 @@ import 'dart:html';
 import 'dart:async';
 import 'dart:js' as js;
 
+import 'comment.dart';
+
 //elements
 Element gameCanvas;
 Element scoreBoard;
@@ -22,7 +24,6 @@ final fbAppSecret = "f32ba829b522d4edd5de8b404523801c";
 
 
 void main() {
-  // initFacebook();
 	initGame();
 	initEvent();
 }
@@ -35,7 +36,7 @@ void initGame() {
 	timeDisplay = querySelector('.time-dispaly');
 	cnt = 0;
   cntForAnimate = 0;
-  level = 1;
+  level = 0;
   going = false;
 
   _callback = (num now) {
@@ -55,11 +56,8 @@ void initGame() {
         timeDisplay.text = "${9-(now~/1000)}.${10-((now~/100)%10)}s";
       //update picture
       if (level < 10 && cnt > levelUp()) {
-        print("in");
         gameCanvas.querySelector(".gh-$level").classes.toggle("hidden");
-        gameCanvas.querySelector(".gh-${level+1}").classes.toggle("hidden");
-        level += 1;
-        print("level: $level");
+        gameCanvas.querySelector(".gh-${++level}").classes.toggle("hidden");
       }
       //update score
       scoreBoard.text = "$cnt";
@@ -84,6 +82,7 @@ void initEvent() {
   });
 	startBtn.onMouseUp.listen((MouseEvent) {
     going = true;
+    gameCanvas.classes.add('hammer-cursor');
     new Timer(const Duration(milliseconds:100), () {
   		//start requestAnimationFrame
       _whenStarted = null;
@@ -99,6 +98,10 @@ void initEvent() {
       cnt++;
     }
   });
+
+  querySelector('.close-login-modal').onClick.listen((MouseEvent) {
+      querySelector("#loginModal").classes.add("hidden");
+    });
 }
 
 void showResult() {
@@ -109,17 +112,92 @@ void showResult() {
   ImageElement resultImg = modal.querySelector(".result-picture");
   resultImg.src = "source/${level}.png";
 
-  modal.querySelector(".result-score").text = "你按了${cnt}下";
-  modal.querySelector("p").text = "你成功破壞房子${level*10}%！....";
+  modal.querySelector(".result-score").text = "你點了${cnt}下";
+  modal.querySelector("p").text = "你成功破壞房子${level*10}%！棄舊才能換新，破壞才能重建，3/19, 20來城市設計黑客松，創造更好的新的城市！";
 
   modal.querySelector(".restart-btn").onClick.listen((MouseEvent) => window.location.reload()); 
-  //save score
-  js.context.callMethod("FBupdateSore", ["$cnt"]);
+  modal.querySelector(".share-btn").onClick.listen((MouseEvent) => js.context.callMethod("FBShareScore", [cnt, level])); 
+  //save score and then show list of friend's scores
+  uploadScore().then((_) {
+    getFriendsScore().then((List scoreList) {
+      scoreList.sort((a, b) => (-1) * (a['score'] - b['score']));
+      for (Map record in scoreList) {
+        //print("mk list: ${record['name']}, ${record['score']}");
+        Element e = new Element.html('<li class="list-group-item">${record['name']}<span class="badge score">${record['score']}</span></li>');
+        querySelector('.friends-sores-list').children.add(e);
+      }
+    });
+  });
 }
 
-int levelUp() => level*level + 5;
+int levelUp() => (level)*(level) + 5;
 
-void initFacebook() {
-    querySelector('.login-btn').click();
+Future downloadScore() {
+  //print("download score");
+  Completer cmpl = new Completer();
+  var handler = (js.JsObject response) {
+    if (response != null && response['error'] == null) {
+      js.JsArray myScores = response['data'];
+      int oldScore = myScores[1]['score'];
+//print("recieve score: $oldScore");
+      for (int i = 2; i < myScores.length; i++) {
+        if (myScores[i]['score'] > oldScore)
+          oldScore = myScores[i]['score'];
+      }
+      if (myScores.length <= 1 || cnt > oldScore) {
+        //print('upload');
+        cmpl.complete(true);
+      } else {
+        //print('do not upload');
+        cmpl.complete(false);
+      }
+    } else {
+      cmpl.completeError("load score failed");
+    }
+  };
+  js.context.callMethod("FBGetOwnScore", [handler]);
+  return cmpl.future;
+}
+
+Future uploadScore() {
+  Completer cmpl = new Completer();
+  downloadScore().then((shouldUpload) {
+  //print("upload score");
+    var handler = (js.JsObject response) {
+      if (response != null && response['error'] == null) {
+        //print('upload success');
+        cmpl.complete();
+      }
+    };
+
+    if (shouldUpload) {
+      js.context.callMethod("FBupdateSore", ["$cnt", handler]);
+    } else {
+        //print('do not upload');
+        cmpl.complete();
+    }
+  });
+  return cmpl.future;
+}
+
+Future getFriendsScore() {
+  Completer cmpl = new Completer();
+  var handler = (response) {
+    if (response != null && response['error'] == null) {
+      js.JsArray records = response['data'];
+        List<Map> scores = new List<Map>();
+        for (var record in records) {
+          Map score = new Map();
+          score['name'] = record['user']['name'];
+          score['score'] = record['score'];
+          scores.add(score);
+        }
+        cmpl.complete(scores);
+      } else {
+        cmpl.completeError("response error");
+      }
+    };
+  js.context.callMethod("FBAskfriendScores", [handler]);
+  return cmpl.future;
 }
 
