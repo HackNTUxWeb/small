@@ -4701,7 +4701,7 @@ if(typeof v!=="number")return v.eo()
 v="\u4f60\u7834\u58de\u4e86"+v*10+"%\u7684\u623f\u5b50\uff01"
 if(w>=19)return H.i(x,w)
 y.textContent=v+x[w]
-J.eq(z.querySelector(".ad"),"\u68c4\u820a\u624d\u80fd\u63db\u65b0\uff0c\u7834\u58de\u624d\u80fd\u91cd\u5efa<br>3/19, 20\u4f86\u57ce\u5e02\u8a2d\u8a08\u9ed1\u5ba2\u677e\uff0c\u5275\u9020\u66f4\u597d\u7684\u65b0\u7684\u57ce\u5e02\uff01")
+J.eq(z.querySelector(".ad"),"\u68c4\u820a\u4f48\u65b0\uff0c\u7834\u58de\u91cd\u5efa\u30023/19, 20\u4f86\u57ce\u5e02\u8a2d\u8a08\u9ed1\u5ba2\u677e\uff0c\u5275\u9020\u66f4\u597d\u7684\u65b0\u7684\u57ce\u5e02\uff01")
 x=J.bw(z.querySelector(".restart-btn"))
 H.h(new W.aj(0,x.a,x.b,W.a2(new F.jg()),x.c),[H.M(x,0)]).R()
 x=J.bw(z.querySelector(".share-btn"))
@@ -5011,6 +5011,35 @@ C.w=function(getTagFallback) {
     hooks.getTag = getTagFallback;
   };
 }
+C.y=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
+}
 C.x=function() {
   function typeNameInChrome(o) {
     var constructor = o.constructor;
@@ -5046,35 +5075,6 @@ C.x=function() {
     getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
     prototypeForTag: prototypeForTag,
     discriminator: discriminator };
-}
-C.y=function(hooks) {
-  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
-  if (userAgent.indexOf("Trident/") == -1) return hooks;
-  var getTag = hooks.getTag;
-  var quickMap = {
-    "BeforeUnloadEvent": "Event",
-    "DataTransfer": "Clipboard",
-    "HTMLDDElement": "HTMLElement",
-    "HTMLDTElement": "HTMLElement",
-    "HTMLPhraseElement": "HTMLElement",
-    "Position": "Geoposition"
-  };
-  function getTagIE(o) {
-    var tag = getTag(o);
-    var newTag = quickMap[tag];
-    if (newTag) return newTag;
-    if (tag == "Object") {
-      if (window.DataView && (o instanceof window.DataView)) return "DataView";
-    }
-    return tag;
-  }
-  function prototypeForTagIE(tag) {
-    var constructor = window[tag];
-    if (constructor == null) return null;
-    return constructor.prototype;
-  }
-  hooks.getTag = getTagIE;
-  hooks.prototypeForTag = prototypeForTagIE;
 }
 C.z=function(hooks) {
   var getTag = hooks.getTag;
