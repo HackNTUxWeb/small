@@ -4845,9 +4845,10 @@ if(typeof v!=="number")return H.S(v)
 if(!(w<v))break
 if(J.D(J.O(z.h(y,w),"score"),x))x=J.O(z.h(y,w),"score")
 u="oldScore bigger "+H.a(x)
-H.co(u);++w}}else{if(J.z(z.gi(y),2))P.G("oldScore==2 "+H.a(J.O(z.h(y,1),"score")))
-else{P.G("no data")
-this.a.ai(0,!0)}x=null}P.G("oldScore "+H.a(x))
+H.co(u);++w}}else if(J.z(z.gi(y),2)){x=J.O(z.h(y,1),"score")
+P.G("oldScore==2 "+H.a(x))}else{P.G("no data")
+this.a.ai(0,!0)
+x=null}P.G("oldScore "+H.a(x))
 P.G("oldScore from "+H.a(J.O(z.h(y,1),"score")))
 z=$.Z
 if(typeof z!=="number")return z.T()
