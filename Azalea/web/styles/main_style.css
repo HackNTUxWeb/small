@@ -89,8 +89,7 @@ h1 .en-title {
 
 .friends-sores-list {
 	max-height: 10vh;
-	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow: scroll;
 }
 
 .freinds-scores-panel li {
