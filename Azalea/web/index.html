@@ -48,8 +48,8 @@
             //get id
             uid = response.authResponse.userID;
             accessToken = response.authResponse.accessToken;
-            // console.log("uid: " + uid);
-            // console.log("token: " + accessToken);
+            console.log("uid: " + uid);
+            console.log("token: " + accessToken);
           }
         });
       };
@@ -70,14 +70,16 @@
             if (response.authResponse) {
               uid = response.authResponse.userID;
               accessToken = response.authResponse.accessToken;
-              // console.log("uid: " + uid);
-              // console.log("token: " + accessToken);
+               console.log("uid: " + uid);
+               console.log("token: " + accessToken);
             }
           },  {scope: 'publish_actions, user_friends'});
         }
       }
 
       function FBGetOwnScore(handler) {
+        console.log("update own score " + newScore);
+        console.log("update own uid " + uid);
         FB.api(
           "/" + uid + "/scores",
           handler
